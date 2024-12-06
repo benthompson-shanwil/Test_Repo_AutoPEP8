@@ -11,7 +11,8 @@ def badFunction():
     if True:
         print("This should be indented properly")
         print("This should be indented properly")
-    for i in range(0, 10): print(i)
+    for i in range(0, 10):
+        print(i)
 
 
 obj = badClass(10)
