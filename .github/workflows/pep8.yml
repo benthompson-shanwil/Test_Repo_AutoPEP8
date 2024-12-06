@@ -20,4 +20,4 @@ jobs:
         pip install pycodestyle
     - name: Analysing the code with pylint
       run: |
-        pycodestyle --first $(git ls-files '*.py')
+        pycodestyle --show-source --first $(git ls-files '*.py')
