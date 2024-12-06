@@ -15,6 +15,7 @@ def badFunction():
         print(i)
     print("This should be indented properly EXTREMELY LONG LINE THAT SHOULD THROW AN ERROR IF NOT ")
 
+
 obj = badClass(10)
 obj.displayValue()
 badFunction()
