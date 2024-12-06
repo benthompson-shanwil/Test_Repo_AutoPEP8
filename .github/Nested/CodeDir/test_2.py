@@ -5,6 +5,9 @@ class badClass:
     def displayValue(self):
         print("Value is: ", self.value)
 
+    def displayValue(self):
+        print("Value is: ", self.value)
+
 
 def badFunction():
     print("This is bad code")
