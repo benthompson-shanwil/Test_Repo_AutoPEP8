@@ -24,7 +24,7 @@ jobs:
         pip install flake8-pyproject
     - name: Analysing the code with flake8
       run: |
-        flake8 ./
+        flake8
     - name: Install Black
       run: |
         pip install black
