@@ -20,4 +20,4 @@ jobs:
         pip install black
     - name: Analysing the code with Black
       run: |
-        black --check --diff --color ./
+        black --check --diff --color $(git ls-files '*.py')

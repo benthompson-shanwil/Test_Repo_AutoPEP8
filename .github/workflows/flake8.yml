@@ -24,10 +24,10 @@ jobs:
         pip install flake8-pyproject
     - name: Analysing the code with flake8
       run: |
-        flake8
+        flake8 $(git ls-files '*.py')
     - name: Install Black
       run: |
         pip install black
     - name: Analysing the code with Black
       run: |
-        black --check --diff --color ./
+        black --check --diff --color $(git ls-files '*.py')
