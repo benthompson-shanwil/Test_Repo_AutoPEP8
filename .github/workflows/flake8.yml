@@ -21,9 +21,10 @@ jobs:
         pip install pep8-naming
         pip install flake8-docstrings
         pip install flake8-rst-docstrings
+        pip install flake8-pyproject
     - name: Analysing the code with flake8
       run: |
-        flake8 $(git ls-files '*.py')
+        flake8 ./
     - name: Install Black
       run: |
         pip install black
