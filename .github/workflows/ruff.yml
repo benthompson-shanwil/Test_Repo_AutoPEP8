@@ -20,4 +20,4 @@ jobs:
         pip install ruff
     - name: Analysing the code with Ruff
       run: |
-        ruff check --color
+        ruff check
