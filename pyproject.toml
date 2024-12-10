@@ -4,3 +4,15 @@ line-length = 100
 [tool.flake8]
 max-line-length = 100
 extend-ignore = ['E203', 'E701', 'D100']
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+preview = true
+select = ['D1', 'D201', 'D3', 'F', 'E', 'W', 'N', 'B', 'I', 'UP', 'ANN', 'ARG', 'R', 'PERF', 'DOC']
+ignore = ['D300']
+
+[tool.ruff.format]
+quote-style = "single"
+skip-magic-trailing-comma = true
