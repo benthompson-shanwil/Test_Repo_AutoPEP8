@@ -20,4 +20,9 @@ jobs:
         pip install ruff
     - name: Analysing the code with Ruff
       run: |
-        ruff check
+        ruff check --output-format github -o lint-results.json
+    - name: Upload linting results
+      uses: kibalabs/github-action-create-annotations@main
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        json-file-path: ./lint-results.json
