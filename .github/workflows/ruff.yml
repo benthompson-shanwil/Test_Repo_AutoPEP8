@@ -24,8 +24,8 @@ jobs:
       run: |
         echo 'BRANCH NAME: ${{ github.base_ref || github.ref_name }}'
         echo "DIFF=$(git diff --name-only origin/main ${{ github.base_ref || github.ref_name }} | grep -E '(.py$|.pyi$|.ipynb$)' | tr '\n' ' ' || echo '')" >> $GITHUB_ENV
-        echo 'CHANGED FILES: ' $DIFF
     - name: Analyze the code with Ruff
       if: ${{ env.DIFF != '' }}
       run: |
+        echo 'CHANGED FILES: ' $DIFF
         ruff check --output-format=github $DIFF
