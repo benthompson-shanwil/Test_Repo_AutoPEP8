@@ -1,0 +1,31 @@
+name: Ruff
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9"]
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install ruff
+    - name: Get diff of main and current branch
+      run: |
+        echo 'BRANCH NAME: ${{ github.base_ref || github.ref_name }}'
+        echo "DIFF=$(git diff --name-only origin/main ${{ github.base_ref || github.ref_name }} | grep -E '(.py$|.pyi$|.ipynb$)' | tr '\n' ' ' || echo '')" >> $GITHUB_ENV
+    - name: Analyze the code with Ruff
+      if: ${{ env.DIFF != '' }}
+      run: |
+        echo 'CHANGED FILES: ' $DIFF
+        ruff check --output-format=github $DIFF
