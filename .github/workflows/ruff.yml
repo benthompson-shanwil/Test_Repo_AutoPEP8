@@ -20,4 +20,4 @@ jobs:
         pip install ruff
     - name: Analyze the code with Ruff
       run: |
-        ruff check --output-format=github $(git diff --name-only main | grep  -E "(.py$|.ipy$|.jpynb$)")
+        ruff check --output-format=github $(git diff main --name-only | grep  -E "(.py$|.pyi$|.ipynb$)")
